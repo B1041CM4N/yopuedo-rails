@@ -1,0 +1,2 @@
+object @data
+attributes :date

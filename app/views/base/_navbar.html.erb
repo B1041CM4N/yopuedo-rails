@@ -1,0 +1,43 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Yo puedo!</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">¿Por que "yo puedo"? <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Historia</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Otras cosas...
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Contacto <%= Emoji.find_by_alias("v").raw %></a>
+          <a class="dropdown-item" href="#">¿Un cafecito? <%= Emoji.find_by_alias("coffee").raw %></a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Otro enlace más</a>
+          <%= link_to new_admin_session_url, class: "btn btn-default btn-xs" do %>
+            <%= fa_icon 'cogs', text: 'Login Admin' %>
+          <% end %>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Estado: No estoooy...</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar lo que sea" aria-label="Search">
+      <%= link_to root_url(query: params[:query]), method: :get, class: "btn btn-success", type: :submit, role: :button do %>
+        Buscar
+      <% end %>
+      <!--
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      -->
+    </form>
+  </div>
+</nav>

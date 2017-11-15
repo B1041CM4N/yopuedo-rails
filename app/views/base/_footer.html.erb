@@ -1,0 +1,26 @@
+<nav class="navbar fixed-bottom navbar-expand-lg navbar-inverse bg-dark">
+  <div class="col-md" style="color:white;">
+    TEXTO
+  </div>
+  <div class="col-md" style="color:white;">
+    YoPuedo® <%= Date.today.strftime("%Y") %>
+  </div>
+  <div class="col-md" style="color:white;" id="head">
+    Fecha actual: <strong><%= DateTime.now.strftime("%d/%m/%Y, %H:%M:%S") %></strong>.
+  </div>
+</nav>
+
+<%= javascript_tag do %>
+  var timer = document.querySelector("#head");
+  setInterval(function(){
+    var dataa = $.ajax({
+      url: "/local/timer",
+      dataType: "JSON",
+      type: "GET"
+    });
+    console.log(dataa.date);
+    console.log(dataa.toString());
+    timer.innerHTML = dataa.toString();
+  }, 1000);  
+<% end %>
+
